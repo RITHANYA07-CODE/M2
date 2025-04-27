@@ -13,23 +13,42 @@ Write a C program to print even numbers ranging from M to N (including M and N v
 
 ## PROGRAM:
 
+```c
+#include <stdio.h>
+
+int main() {
+    int M, N;
+
+    // Getting user input
+    printf("Enter the values of M and N: ");
+    scanf("%d %d", &M, &N);
+
+    printf("Even numbers from %d to %d are:\n", M, N);
+
+    // Adjust M if it's odd to start from the next even number
+    if (M % 2 != 0) {
+        M++;  
+    }
+
+    // Loop to print even numbers
+    for (int i = M; i <= N; i += 2) {
+        printf("%d ", i);
+    }
+
+    printf("\n"); // New line for clean output
+    return 0;
+}
+```
+
 ## OUTPUT:
-
-
-
-
-
-
-
-
-
+Enter the values of M and N: 10 20
+Even numbers from 10 to 20 are:
+10 12 14 16 18 20 
 
 ## RESULT:
 Thus the program to print even numbers ranging from M to N (including M and N values) has been executed successfully
  
  
-
-
 # EX-07-Nested-loop
 
 ## AIM:
@@ -48,6 +67,7 @@ Write a C program to print the given triangular pattern using loop.
 
 
 ## OUTPUT:
+![image](https://github.com/user-attachments/assets/1c7ec586-a0ef-4e16-a303-48cd2f2e99c9)
 
 
 
@@ -57,8 +77,6 @@ Write a C program to print the given triangular pattern using loop.
 
 Thus the program to print the given triangular pattern using loop has been executed successfully
  
- 
-
 
 # EX-08-Functions
 
@@ -75,21 +93,46 @@ Write a C program to perform addition and subtraction of two numbers using funct
 
 ## PROGRAM:
 
+```c
+#include <stdio.h>
+
+// Function to perform addition
+void add(int a, int b) {
+    int sum = a + b;
+    printf("Addition of %d and %d is: %d\n", a, b, sum);
+}
+
+// Function to perform subtraction
+void subtract(int a, int b) {
+    int diff = a - b;
+    printf("Subtraction of %d and %d is: %d\n", a, b, diff);
+}
+
+int main() {
+    int num1, num2;
+
+    // Getting user input
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    // Function calls
+    add(num1, num2);
+    subtract(num1, num2);
+
+    return 0;
+}
+```
 
 ## OUTPUT:
-
-
-
-
-
+Enter two numbers: 2 3
+Addition of 2 and 3 is: 5
+Subtraction of 2 and 3 is: -1
 
 ## RESULT:
 
 Thus the program to perform addition and subtraction of two numbers using functions has been executed successfully
  
  
-
-
 # EX-09-Use For Loop
 
 ## AIM:
@@ -107,17 +150,38 @@ Write a c program to find the sum of odd digits using for loop
 
 ## PROGRAM:
 
+```c
+#include <stdio.h>
+
+int main() {
+    int num, digit, sum = 0;
+
+    // Getting user input
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    // Using a for loop to extract and check digits
+    for (; num > 0; num /= 10) {
+        digit = num % 10;  // Extract the last digit
+
+        if (digit % 2 != 0) {  // Check if digit is odd
+            sum += digit;      // Add to sum if odd
+        }
+    }
+
+    // Printing the result
+    printf("Sum of odd digits is: %d\n", sum);
+
+    return 0;
+}
+```
 
 ## OUTPUT:
-
-
-
+Enter a number: 123456789
+Sum of odd digits is: 25
 
 ## RESULT:
-
 Thus the program to find the sum of odd digits using for loop has been executed successfully.
-
-
 
 
 # EX – 10 - Factorial of a Number Using a Function
@@ -137,9 +201,41 @@ d.	After the loop, print the factorial value.
 
 ## PROGRAM:
 
+```c
+#include <stdio.h>
+
+// Function to calculate factorial
+void fact() {
+    int i, N;
+    unsigned long long factorial = 1; // Using long long to handle large factorials
+
+    // Getting user input
+    printf("Enter a number to find its factorial: ");
+    scanf("%d", &N);
+
+    if (N < 0) {
+        printf("Factorial of a negative number doesn't exist.\n");
+        return;
+    }
+
+    // Calculating factorial using for loop
+    for (i = 1; i <= N; i++) {
+        factorial *= i;
+    }
+
+    // Printing the result
+    printf("Factorial of %d is: %llu\n", N, factorial);
+}
+
+int main() {
+    fact();  // Function call
+    return 0;
+}
+```
 
 ## OUTPUT:
+Enter a number to find its factorial: 5
+Factorial of 5 is: 120
 
 ## RESULT:
 The program correctly computes the factorial of a given number using a separate function and displays the result.
- 
